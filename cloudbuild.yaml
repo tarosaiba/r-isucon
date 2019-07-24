@@ -1,26 +1,26 @@
 steps:
 ## app
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', './webapps/nodejs/Dockerfile', '.', '-t', 'gcr.io/michelle214/app:$COMMIT_SHA']
+  args: ['build', '-f', './webapps/nodejs/Dockerfile', '.', '-t', 'gcr.io/isucon-247713/app:$COMMIT_SHA']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/michelle214/app:$COMMIT_SHA"]
+  args: ["push", "gcr.io/isucon-247713/app:$COMMIT_SHA"]
 
 # - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/app-deployment', 'app=gcr.io/michelle214/app:$COMMIT_SHA']
+#   args: ['set', 'image', 'deployment/app-deployment', 'app=gcr.io/isucon-247713/app:$COMMIT_SHA']
 #   env:
 #   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
 #   - 'CLOUDSDK_CONTAINER_CLUSTER=kube-cluster'
 
 ## mysql
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-f', './middleware/mysql/Dockerfile', '.', '-t', 'gcr.io/michelle214/mysql:$COMMIT_SHA']
+  args: ['build', '-f', './middleware/mysql/Dockerfile', '.', '-t', 'gcr.io/isucon-247713/mysql:$COMMIT_SHA']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/michelle214/mysql:$COMMIT_SHA"]
+  args: ["push", "gcr.io/isucon-247713/mysql:$COMMIT_SHA"]
 
 # - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['set', 'image', 'deployment/mysql-deployment', 'mysql=gcr.io/michelle214/mysql:$COMMIT_SHA']
+#   args: ['set', 'image', 'deployment/mysql-deployment', 'mysql=gcr.io/isucon-247713/mysql:$COMMIT_SHA']
 #   env:
 #   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
 #   - 'CLOUDSDK_CONTAINER_CLUSTER=kube-cluster'
